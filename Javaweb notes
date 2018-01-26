@@ -1,1 +1,8 @@
-
+1. 关于Filter的使用：
+  1.1 Filetr用来对所有的web资源进行拦截，主要用于对用户请求进行预处理，也可以对HttpServletResponse进行后处理。
+  1.2 在HttpServletRequest 到达 Servlet 之前，拦截客户的 HttpServletRequest 。根据需要检查 HttpServletRequest ，也可以修改HttpServletRequest 头和数据。
+      在HttpServletResponse 到达客户端之前，拦截HttpServletResponse 。根据需要检查 HttpServletResponse ，也可以修改HttpServletResponse头和数据。
+2. 关于class.forname()的初步使用：
+   用来加载类，执行类中的静态模块。 ！！在java中主要用来进行注册驱动程序
+3. statement batch批处理：
+   首先需要关闭自动执行，connection.setAutoCommit(false),然后添加addBatch(),最后executeBatch()
