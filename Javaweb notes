@@ -6,3 +6,4 @@
    用来加载类，执行类中的静态模块。 ！！在java中主要用来进行注册驱动程序
 3. statement batch批处理：
    首先需要关闭自动执行，connection.setAutoCommit(false),然后添加addBatch(),最后executeBatch()
+4. maven使用的时候记得把main目录设置为source 目录，否则很容易出现code completion不成功。
