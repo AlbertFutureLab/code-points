@@ -1,0 +1,3 @@
+使用 git add .. 添加文件，使用git commit -m 提交，此处的提交意味着保存一个快照，可以从最近的commit恢复
+每次提交文件都需要先add再进行commit
+使用git rest --hard HEAD^ 退回到上一次的版本
