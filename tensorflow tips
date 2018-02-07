@@ -60,3 +60,4 @@
   inputs: The RNN inputs. If time_major == False (default), this must be a tensor of shape: [batch_size, max_time, ...], or a nested tuple of such elements. I
   if time_major == True, this must be a tensor of shape: [max_time, batch_size, ...], or a nested tuple of such elements.
   inputs: The RNN inputs. If time_major == False (default), this must be a tensor of shape: [batch_size, max_time, ...], or a nested tuple of such elements. If time_major == True, this must be a tensor of shape: [max_time, batch_size, ...], or a nested tuple of such elements.
+21. tf.shape(tf.expand_dims(t2, 2))  # [2, 3, 1, 5] 在第2个地方插入一个维度
