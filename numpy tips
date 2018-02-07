@@ -1,0 +1,1 @@
+1. np.random.permutation(x) if x is a number, then permute 0-the number-1 randomly. if it is a list, then shuffle it randomly.
