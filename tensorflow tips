@@ -56,4 +56,7 @@
 19. embeddings:
     word_embeddings = tf.get_variable(“word_embeddings”, [vocabulary_size, embedding_size])
     embedded_word_ids = tf.nn.embedding_lookup(word_embeddings, word_ids)
-20. 
+20. 双向rnn：
+  inputs: The RNN inputs. If time_major == False (default), this must be a tensor of shape: [batch_size, max_time, ...], or a nested tuple of such elements. I
+  if time_major == True, this must be a tensor of shape: [max_time, batch_size, ...], or a nested tuple of such elements.
+  inputs: The RNN inputs. If time_major == False (default), this must be a tensor of shape: [batch_size, max_time, ...], or a nested tuple of such elements. If time_major == True, this must be a tensor of shape: [max_time, batch_size, ...], or a nested tuple of such elements.
