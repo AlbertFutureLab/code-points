@@ -5,3 +5,42 @@
 2. clip用来控制梯度爆炸和梯度消失问题，dropout用来控制遗忘率
 3. 在save和restore的时候变量的shape和type必须一样
 4. 使用interactiveSession类，可以更加灵活地构建代码。可以不需要再运行图之前创建好图。
+5. elements in tensor:tf.Variable   tf.constant   tf.placeholder  tf.SparseTensor
+6. tf.rank返回的是tensor的维度，常量的话维度为0
+7. 在reshape中-1代表剩下的；cast函数可以改变tensor的datatype
+8. tensor.eval()only当session被激活的时候才起作用。Tensor.eval returns a numpy array with the same contents as the tensor.
+9. 关于tf的variables：
+  9.1 my_variable = tf.get_variable("my_variable", [1, 2, 3]) 创建变量，default: dtype=tf.float32, initial: tf.glorot_uniform_initializer.
+  9.2 tf.getvariable(变量名, 变量类型，初始化函数, collections函数)
+  9.3 不使一个变量trainable的办法：加入到tf.GraphKeys.LOCAL_VARIABLES中，或者使用trainable=False
+  9.4 加入和读取collection中的变量：tf.add_to_collection() tf.get_collection()
+10. 关于设备布置：
+  10.1 with tf.device("/device:GPU:1"):
+11. 关于变量初始化：
+  11.1 Most high-level frameworks tf.contrib.slim, tf.estimator.Estimator and Keras automatically initialize variables for
+  you before training a model.
+  11.2 tf.global_variables_initializer() would initialize all variables in tf.GraphKeys.GLOBAL_VARIABLES collection.
+       此函数中并不指定初始化的顺序，所以如果变量之间有依赖关系，可能会产生错误。
+  11.3 initialize variable by yourself: session.run(my_variable.initializer)
+  11.4 report unitialized_variables: print(session.run(tf.report_uninitialized_variables()))
+  11.5 To assign a value to a variable, use the methods assign, assign_add, and friends in the tf.Variable class
+12. 关于变量分享：
+  TensorFlow supports two ways of sharing variables:
+          Explicitly passing tf.Variable objects around.
+          Implicitly wrapping tf.Variable objects within tf.variable_scope objects.
+  12.1 trigger the variables sharing:
+    reuse=True
+    scope.resuce_variables()
+13. For convenience, these functions will accept a tensor-like object in place of a tf.Tensor, 
+    and implicitly convert it to a tf.Tensor using the tf.convert_to_tensor method.
+    tf.Tensor
+    tf.Variable
+    numpy.ndarray
+    list (and lists of tensor-like objects)
+    Scalar Python types: bool, float, int, str
+14. about saving and restoring.
+  Note that Estimators automatically saves and restores variables (in the model_dir).
+15. restore variables:
+    传入变量list或者ditc
+16. chkp.print_tensors_in_checkpoint_file("/tmp/model.ckpt", tensor_name='', all_tensors=True) 打印
+    保存的变量值
