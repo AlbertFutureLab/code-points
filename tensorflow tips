@@ -44,3 +44,16 @@
     传入变量list或者ditc
 16. chkp.print_tensors_in_checkpoint_file("/tmp/model.ckpt", tensor_name='', all_tensors=True) 打印
     保存的变量值
+17. check thee devices:
+  sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+18. two ways to limit gpu memory:
+  18.1 config = tf.ConfigProto()
+       config.gpu_options.allow_growth = True
+       session = tf.Session(config=config, ...)
+  18.2 config = tf.ConfigProto()
+        config.gpu_options.per_process_gpu_memory_fraction = 0.4
+        session = tf.Session(config=config, ..)
+19. embeddings:
+    word_embeddings = tf.get_variable(“word_embeddings”, [vocabulary_size, embedding_size])
+    embedded_word_ids = tf.nn.embedding_lookup(word_embeddings, word_ids)
+20. 
