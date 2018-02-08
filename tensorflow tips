@@ -65,4 +65,16 @@
   The inputs are 4 dimensional and are of form: [batch_size, image_rows, image_cols, number_of_colors]
   strieds=[1,x,x,1] 第一个是不跳过任何batch,最后一个是depth=1
 23. 'VALID' means without padding, 'SAME' means with zeros padding.
-24. 
+24. tf.nn.conv2d(input, filter, strides, padding,
+  tf.nn.conv2d(input, filter, strides, padding, use_cudnn_on_gpu=None, data_format=None, name=None)
+  See the guide: Neural Network > Convolution
+  Computes a 2-D convolution given 4-D input and filter tensors.
+  Given an input tensor of shape [batch, in_height, in_width, in_channels] and a filter / kernel tensor of shape
+  [filter_height, filter_width, in_channels, out_channels]
+25. using tf.summary.scalar to check the output lr or lese.
+    using tf.summary.histogram to the gradients output and to the variables that holds your weights
+    using tf.summary.merge_all to combine them into a single op that generates all the summary data
+26. in NLP: the pooling always doing in the length of the sequence.
+27. 如果padding = ‘VALID’, new_height = new_width = (W – F + 1) / S （结果向上取整）
+    如果padding = ‘SAME’, new_height = new_width = W / S （结果向上取整）
+    pooling和这个的效果相同。
