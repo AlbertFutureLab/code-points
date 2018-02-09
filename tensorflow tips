@@ -78,3 +78,6 @@
 27. 如果padding = ‘VALID’, new_height = new_width = (W – F + 1) / S （结果向上取整）
     如果padding = ‘SAME’, new_height = new_width = W / S （结果向上取整）
     pooling和这个的效果相同。
+28. 关于tf.estimator.Estimator:
+  28.1 input_function: features: {key: value} key is feature name, value is the value of the feature.
+  28.2 
